@@ -35,7 +35,7 @@ This folder contains the following files:
    - `SurvTime` : survival time
    - `status`: censoring indicator (1: non censored; 0 censored)
    - `A0`: age at entry in the study
-   - `cluster`: the name of the variable in the data containing cluster (twin) IDs
+   - `TwinID`: the name of the variable in the data containing twin (cluster) IDs
    - `id`: the name of the variable in the data containing individual IDs
    - `Marker`: the longitudinal marker measurements
    - `MarkerTime`: age at marker measurement
