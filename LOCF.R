@@ -22,6 +22,8 @@
 Lik_LOCF <- function(p, dat1, e, di, GG) {
   # e -- Total number of non-censored observations
   # GG -- total number of clusters (twin pairs)
+### exp(p[1]) <- lambda ; exp( p[2] ) <- rho ;  p[3] <- theta ; p[4] <- alpha
+
   cumhazStart <- as.numeric(aggregate(out ~ cluster, transform(dat1,
                                                                out = exp(p[1]) * (start^exp(p[2])) * exp(zij * p[4])), FUN = sum)[,2])
   
