@@ -1,3 +1,23 @@
+#################################################################################
+#  Last observation carried forward: Weibull baseline hazard and gamma frailty  #
+#  h0 = lambda*rho*t^(rh0-1)   and   H0 = lambda*t^(rho)                        #
+#################################################################################
+#                                                                               #
+#  The function arguments are:                                                  #
+#   - data     : a data.frame containing all the variables;                     #
+#   - cluster  : the name of the variable in data containing cluster(twin) IDs; #
+#   - id       : the name of the variable in data containing individual IDs;    #
+#   - MarkerTime  : time when the covariate measurements were taken             #
+#   - status   : censoring indicator(1: non censored; 0 censored)               #
+#   - SurvTime : Survival time                                                  #
+#   - A0       : Age at entry                                                   #
+#   - inip     : initial values for the parameters(Lambda,Rho,alpha,theta)      #
+#################################################################################
+#                                                                               #
+#   Last modification : April  07, 2025                                         #
+#                                                                               #
+#################################################################################
+
 #The log of marginal likelihood function;
 Lik_LOCF <- function(p, dat1, e, di, GG) {
   # e -- Total number of non-censored observations
