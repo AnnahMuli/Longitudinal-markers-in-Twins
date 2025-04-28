@@ -164,7 +164,7 @@ fit_JM <- function(data, cluster, id, inip, Marker, MarkerTime, status, SurvTime
   
   if (hess == TRUE) {
     std3 <- sqrt(diag(solve(hessian(Lik_JM, t2$par))))
-    Output2 <- round(matrix(c(t2$par[3], std3[3], t2$par[2], std3[2],
+    Output2 <- round(matrix(c(t2$par[3], std3[3], exp(t2$par[2]), exp(t2$par[2]) *std3[2],
                               exp(t2$par[4]), exp(t2$par[4]) * std3[4],
                               exp(t2$par[6]), exp(t2$par[6]) * std3[6],
                               exp(t2$par[1]), exp(t2$par[1]) * std3[1],
