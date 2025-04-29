@@ -188,4 +188,4 @@ DatH<-read.csv( file="C:/Users/staammu/Desktop/SimulData.csv" )
 attach(DatH)
 fit_JM( data=DatH, cluster = TwinID, id=id, inip=c(  log(0.01), log(0.5), 2, log(0.05), log(0.05), log(2) ) ,
         Marker=Marker,  MarkerTime=MarkerTime, status=status,SurvTime=SurvTime, A0=A0,
-        hess=F, randslope=F)
+        hess=F, randslope=T)
