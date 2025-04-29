@@ -84,8 +84,7 @@ likelihood.Joint_T <- function(p, LongData, SurvData, Beta0, Beta1) {
     exp(alpha * (Beta0 + SurvData$bij0[i])) * s^(rho - 1) * exp(alpha * (Beta1 + SurvData$bij1[i]) * s), lowerLimit = c(0), upperLimit = c(SurvData$A0[i]))[1]), use.names = FALSE)
   S0.Hit <- split(H0it, SurvData$cluster)
   
-  c <- 1e-6  # To prevent the likelihood from becoming infinite
-  lik <- sum(log(unlist(sapply(1:n, function(i)
+   lik <- sum(log(unlist(sapply(1:n, function(i)
     adaptIntegrate(function(uv)
       as.numeric(((2 * pi * (sigma_e^2))^(-L.ni[i] / 2) * exp(-1 / (2 * (sigma_e^2)) * sum((L.yit[[i]] - uv[1])^2))) *
                    (prod(S.hit[[i]]) * (exp(alpha * uv[1]))^S.status[i,]) *
@@ -188,4 +187,4 @@ DatH<-read.csv( file="C:/Users/staammu/Desktop/SimulData.csv" )
 attach(DatH)
 fit_JM( data=DatH, cluster = TwinID, id=id, inip=c(  log(0.01), log(0.5), 2, log(0.05), log(0.05), log(2) ) ,
         Marker=Marker,  MarkerTime=MarkerTime, status=status,SurvTime=SurvTime, A0=A0,
-        hess=F, randslope=T)
+        hess=T, randslope=T)
